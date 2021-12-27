@@ -1,0 +1,18 @@
+---
+stages:
+  - build
+
+.nix:
+  image: nixos/nix:2.3.12
+  before_script:
+    - . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+  tags:
+    - nix
+
+build:
+  extends:
+    - .nix
+  stage: build
+  script: nix-build -E '(import <nixpkgs> {}).callPackage ./default.nix {}'
+  tags:
+    - nix
