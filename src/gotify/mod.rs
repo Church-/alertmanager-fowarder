@@ -11,8 +11,15 @@ pub fn gen_notification(alert: Alert) -> Notification {
         ..Default::default()
     };
 
-    notify.title = alert.annotations.title.unwrap();
-    notify.message = alert.annotations.description.unwrap();
+    if let Some(title) = alert.annotations.title {
+        notify.title = title;
+    }
+    if let Some(description) = alert.annotations.description {
+        notify.message = description;
+    }
+    if let Some(priority) = alert.annotations.priority {
+        notify.priority = priority;
+    }
 
     notify
 }
