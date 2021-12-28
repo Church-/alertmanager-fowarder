@@ -14,9 +14,9 @@ pub struct Alert {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Annotation {
-    pub description: Option<String>,
-    pub summary: Option<String>,
     pub title: Option<String>,
+    pub description: Option<String>,
+    pub priority: Option<isize>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
