@@ -16,12 +16,11 @@ pub struct Alert {
 pub struct Annotation {
     pub title: Option<String>,
     pub description: Option<String>,
-    pub priority: Option<isize>,
+    pub priority: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Label {
     pub alertname: String,
-    pub job: String,
     pub instance: String,
 }
