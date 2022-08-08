@@ -18,7 +18,9 @@ pub fn gen_notification(alert: Alert) -> Notification {
         notify.message = description;
     }
     if let Some(priority) = alert.annotations.priority {
-        notify.priority = priority;
+        if let Ok(priority) = priority.parse() {
+            notify.priority = priority;
+        }
     }
 
     notify

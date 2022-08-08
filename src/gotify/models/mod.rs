@@ -4,7 +4,7 @@ use serde::Serialize;
 pub struct Notification {
     pub title: String,
     pub message: String,
-    pub priority: String,
+    pub priority: isize,
 }
 
 impl Default for Notification {
@@ -12,7 +12,7 @@ impl Default for Notification {
         Notification {
             title: "".to_string(),
             message: "".to_string(),
-            priority: 5.to_string(),
+            priority: 5,
         }
     }
 }
