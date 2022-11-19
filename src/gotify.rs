@@ -1,10 +1,25 @@
-use super::alertmanager::models::Alert;
-use super::config::models::Config;
 use anyhow::Result;
-use models::Notification;
-use reqwest;
+use serde::Serialize;
 
-pub mod models;
+use crate::alertmanager::Alert;
+use crate::config::Config;
+
+#[derive(Serialize, Debug, Clone)]
+pub struct Notification {
+    pub title: String,
+    pub message: String,
+    pub priority: isize,
+}
+
+impl Default for Notification {
+    fn default() -> Notification {
+        Notification {
+            title: "".to_string(),
+            message: "".to_string(),
+            priority: 5,
+        }
+    }
+}
 
 pub fn gen_notification(alert: Alert) -> Notification {
     let mut notify = Notification {

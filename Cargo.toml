@@ -1,11 +1,12 @@
 [package]
-edition = "2018"
+edition = "2021"
 name = "alertmanager_forwarder"
 version = "0.1.0"
+
 [dependencies]
 anyhow = "1.0.44"
 atty = "0.2.14"
-clap = "*"
+backtraceio = { git = "https://github.com/Church-/backtrace-rust.git" }
 log = "0.4.14"
 once_cell = "1.8.0"
 reqwest = { version = "0.11.7",  features = [ "json" ] }
@@ -15,11 +16,7 @@ toml = "0.5.8"
 tracing-journald = "0.2.0"
 tracing-subscriber = { version = "0.3.3", features = ["tracing-log", "env-filter"] }
 tracing = "0.1.29"
-
-[dependencies.rocket]
-features = ["json"]
-version = "0.5.0-rc.1"
-
-[dependencies.tokio]
-features = ["full"]
-version = "*"
+tokio = { version = "1.21.2", features = ["full"] }
+axum = "0.5.17"
+clap = { version = "4.0.25", features = ["derive"] }
+gethostname = "0.3.0"
