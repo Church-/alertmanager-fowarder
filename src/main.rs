@@ -77,7 +77,7 @@ async fn main() -> Result<()> {
         .route("/forward_to_gotify", post(route_to_gotify))
         .layer(Extension(shared_state));
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], config.port.unwrap_or(6064)));
+    let addr = SocketAddr::from(([127, 0, 0, 1], config.port.unwrap_or(6063)));
 
     info!("Starting Alert Manager forwarding service...");
     axum::Server::bind(&addr)

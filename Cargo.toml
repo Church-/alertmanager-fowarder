@@ -1,6 +1,7 @@
 [package]
 edition = "2021"
-name = "alertmanager_forwarder"
+name = "alertmanager-forwarder"
+description = "Forward alertmanager alerts to gotify push notification server"
 version = "0.1.0"
 
 [dependencies]
